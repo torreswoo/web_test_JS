@@ -1,0 +1,33 @@
+<html>
+
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+		function process() {
+			var result = '';
+
+			for (var i = 0; i < document.fm.elements.length; i++) {
+				result += document.fm.elements[i].name + '\n';
+			};
+
+			window.alert(result);
+			return false;
+		}
+
+
+	</script>
+</head>
+
+<body>
+	<form name="fm" onsubmit="return process()">
+		<label>
+			name1:<input type="text" name="name01" size="10"/><br/>
+		</label>
+		<label>
+			name2:<input type="text" name="name02" size="10"/><br/>
+		</label>
+	</form>
+
+</body>
+</html>
