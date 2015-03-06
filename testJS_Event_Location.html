@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> STUDY FORM Location</title>
+
+	<script type="text/javascript">
+
+		function $query(){
+
+			var result = {};
+			var str = location.search.substring(1);
+			var params = str.split('&');
+
+			for (var i = 0; i < params.length; i++) {
+				var key_value = params[i].split('=');
+				result[key_value[0]] = decodeURIComponent(key_value[1]);
+			};
+
+			return result;
+		}
+
+	</script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var query = $query();			// '?id=1234&category=script'
+		document.write('id: '+ query['id']);
+	</script>
+	
+
+</body>
+</html>
