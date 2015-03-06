@@ -11,7 +11,7 @@ function initializeBase(derive, base, baseArgs){
 
 }
 
-//Member class
+//Member classn
 var Member = function(firstName, lastName){
     this.firstName = firstName;
     this.lastName = lastName;
