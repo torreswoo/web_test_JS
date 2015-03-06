@@ -10,30 +10,50 @@
 		function process() {
 			var result = '';
 
-			for (var i = 0; i < document.fm.elements.length-1; i++) {
-				result += document.fm.elements[i].value + '\n';
+			for (var i = 0; i < document.fm01.elements.length-1; i++) {
+				result += document.fm01.elements[i].value + '\n';
 			};
 
 			window.alert(result);
-			return false;
+			return false;	// onsubmit이벤트를 취소
 		}
 
+	// 2. 텍스트계 요소 조작 => POST method..
 		function checked(){
+			var age = document.fm02.old;
+			if( (age.value != null) && (q.value !='') ) {
+				if( isNaN(age.value) ){
+					window.alert("연령은 수치로 입려해야합니다.")
+					age.value = age.defaultValue;//기본값으로
+					age.focus(); //포코스로
+					age.select(); //선택되게
+					return false // onsubmit이벤트를 취소
+				}
 
+			}
 		}
 	</script>
 </head>
 
 <body>
-	<form name="fm" onsubmit="return process()">
+
+	<!--1.form-->
+	<form name="fm01" onsubmit="return process()">
 		<label>
-			name1:<input type="text" name="name01" size="10"/><br/>
+			name1:<input type="text" name="name01" size="10"/></br>
 		</label>
 		<label>
-			name2:<input type="text" name="name02" size="10"/><br/>
+			name2:<input type="text" name="name02" size="10"/></br>
 		</label>
 		<input type="submit" value="송신"/>
+	</form>
 
+	<!--2.form-->
+	<form name="fm02" method="POST" action="" onsubmit="return checked()">
+		<label>
+			연령: <input type="text" name="old" value="20" size="100" />세</br>
+		</label>
+		<input type="submit" value="송신"/>
 	</form>
 </body>
 </html>
