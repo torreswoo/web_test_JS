@@ -1,21 +1,26 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-	<title></title>
+	<title> STUDY FORM</title>
 
 	<script type="text/javascript">
+
+	// 1. form 요소 접근  document.fm.elements.
 		function process() {
 			var result = '';
 
-			for (var i = 0; i < document.fm.elements.length; i++) {
-				result += document.fm.elements[i].name + '\n';
+			for (var i = 0; i < document.fm.elements.length-1; i++) {
+				result += document.fm.elements[i].value + '\n';
 			};
 
 			window.alert(result);
 			return false;
 		}
 
+		function checked(){
 
+		}
 	</script>
 </head>
 
@@ -27,7 +32,8 @@
 		<label>
 			name2:<input type="text" name="name02" size="10"/><br/>
 		</label>
-	</form>
+		<input type="submit" value="송신"/>
 
+	</form>
 </body>
 </html>
