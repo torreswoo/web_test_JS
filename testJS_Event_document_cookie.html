@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> STUDY FORM document cookie!</title>
+
+	<script type="text/javascript">
+
+
+	// setCookie
+		function setCookie(name, value, expires, domain, path, secure){
+			var strCookie = '';
+			strCookie += name+'='+encodeURIComponet(value);
+			if(expires){
+				var exp = new Date();
+				sep.setDate(exp.getDate + expires);
+				strCookie +='; expires='+exp.toGMTString();
+			}
+
+			if(domain){
+				strCookie += '; domain=' + domain;
+			}
+			if(path){
+				strCookie += '; path=' + path;
+			}
+			if(secure){
+				strCookie += '; secure=' + secure;
+			}
+
+			document.cookie = strCookie; //완성된 쿠키문자열을 client에쓴다
+		}
+
+	// getCookie
+		function getCookie(name){
+			var strCookie = document.cookie.split(';');
+			for (var i = 0; i < strCookie.length; i++) {
+				var key_value = strCookie[i].split('=');
+				if(key_value[0]==name){
+					return decodeURIComponent(key_value[1]);
+				}
+			};
+			return null;
+		}
+
+	</script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var cnt = getCookie('js_cnt');
+		cnt = cnt ? ++cnt : 1;
+		setCookie('js_cnt', cnt, 90);
+		document.write('당신은 이 사이트에 '+ cnt + '회, 액세스함');
+	</script>
+	
+
+</body>
+</html>
