@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Event</title>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var header = document.getElementById('my-header');
+
+			if(header.attachEvent){
+				var handler = function(){
+					window.event.srcElement.style.color = 'red';
+					window.event.srcElement.detachEvent('onclick', handler);
+				};
+				header.attachEvent('onclick', handler);
+			}
+			else{
+				var handler = function(){
+					this.style.color = 'red';
+					this.removeEventListener('click', handler);
+				}
+				header.addEventListener('click', handler);
+			}
+
+		}
+
+	</script>
+</head>
+<body>
+	<header id='my-header'> test header</header>
+
+</body>
+</html>
